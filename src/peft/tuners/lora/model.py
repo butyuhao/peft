@@ -194,7 +194,7 @@ class LoraModel(BaseTuner):
                 lora_config.use_rslora,
             )
         elif isinstance(target, linear_types):
-            target.update_layer(
+            target.update_layer( # 如果已经有了layer，就更新layer
                 adapter_name,
                 r,
                 alpha,

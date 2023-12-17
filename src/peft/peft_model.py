@@ -123,7 +123,7 @@ class PeftModel(PushToHubMixin, torch.nn.Module):
             self.add_adapter(adapter_name, peft_config)
         else:
             self._peft_config = None
-            cls = PEFT_TYPE_TO_MODEL_MAPPING[peft_config.peft_type]
+            cls = PEFT_TYPE_TO_MODEL_MAPPING[peft_config.peft_type] # LoraModel
             self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)
             self.set_additional_trainable_modules(peft_config, adapter_name)
 
